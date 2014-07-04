@@ -15,7 +15,7 @@ $(function (){
     live:    "https://courttribunalfinder.service.gov.uk"
   };
 
-  var baseUrl = baseURLs['staging'];
+  var baseUrl = baseURLs['live'];
 
   var $iframe = $('iframe');
   var paused = false;
