@@ -3,13 +3,62 @@
 <head>
   <title></title>
 
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
 
-  <script src="js/lib/jquery.js"></script>
-  <script src="data/courts.js"></script>
-  <script src="js/switcher.js"></script>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/underscore.min.js"></script>
+  <script src="js/browser.js"></script>
 </head>
 <body>
-  <iframe></iframe>
+  <header>
+    <h1>Courtfinder Visual Tester</h1>
+    <nav>
+      <fieldset id="env-controls">
+        <legend>Environment</legend>
+        <select></select>
+      </fieldset>
+
+      <fieldset id="court-controls">
+        <legend>Courts</legend>
+        <select></select>
+        <button id="prev-court" title="Previous court"><span class="chevron">&lt;</span></button>
+        <button id="next-court" title="Next court"><span class="chevron">&gt;</span></button>
+      </fieldset>
+
+      <fieldset id="size-controls">
+        <legend>Sizes</legend>
+        <button id="prev-size" title="Previous screen size"><span class="chevron">&lt;</span></button>
+        <button id="next-size" title="Next screen size"><span class="chevron">&gt;</span></button>
+
+        <button id="mobile-size" class="active size-control" title="Mobile size">M</button>
+        <button id="tablet-size" class="size-control" title="Tablet size">T</button>
+        <button id="desktop-size" class="size-control" title="Desktop size">D</button>
+        <button id="full-size" class="size-control" title="Full size">F</button>
+
+        <button id="cycle-button" title="Cycle through sizes">
+          <svg width="30" height="14" viewbox="750 -100 700 1100">
+            <path 
+              fill="black"
+              d="M25 154q121 2 213.5 35t159.5 84q-45 94 -69.5 191t-24.5 191q0 43 10.5 92t33 90t58.5 68t88 27q51 0 86.5 -26.5t57.5 
+              -66.5t31.5 -87t9.5 -87q0 -57 -10.5 -113.5t-30 -110.5t-46 -104t-58.5 -93q48 -45 107.5 -72.5t135.5 -27.5q75 0 137.5 
+              29t113.5 77 q-54 94 -84.5 197t-30.5 206q0 44 10.5 93t33.5 90.5t59.5 68.5t87.5 27t86.5 -27t57 -66.5t31.5 -85.5t10 
+              -84q0 -57 -10 -114t-28 -112t-42.5 -106.5t-52.5 -97.5q48 -43 109.5 -69t139.5 -26q81 0 145 33t115 85q-61 91 -98 
+              190.5t-37 205.5q0 45 11.5 93t35.5 88.5 t61 66.5t88 26q50 0 84.5 -26.5t56 -66t31 -86t9.5 -85.5q0 -103 -30 -201.5t-75 
+              -186.5q72 -54 167.5 -88.5t216.5 -37.5l-20 -161q-133 4 -240 53.5t-188 130.5q-30 -42 -65.5 -77.5t-74.5 -61t-81.5 
+              -40t-87.5 -14.5h-1h-4h-3h-1q-97 0 -177.5 47t-146.5 123 q-63 -78 -139.5 -124.5t-164.5 -46.5q-102 0 -183 49.5t-144 
+              131.5q-78 -75 -181.5 -122t-238.5 -49zM389 597q0 -69 20 -138t55 -126q60 67 94 143t34 154q0 22 -5.5 46t-17 44t-29 
+              33.5t-42.5 13.5q-31 0 -52 -17.5t-33.5 -43.5t-18 -55.5t-5.5 -53.5zM999 596 q0 -76 23.5 -147t65.5 -131q49 68 81.5 
+              150t32.5 163q0 21 -5.5 45t-16.5 44t-29 33t-42 13q-32 0 -53 -17.5t-33.5 -43.5t-18 -55.5t-5.5 -53.5zM1617 606q0 
+              -75 32 -140.5t80 -119.5q40 66 65.5 137.5t25.5 144.5q0 22 -5.5 46t-16.5 44.5t-29 33.5t-43 13q-30 0 -51 -16 t-33.5 
+              -40t-18.5 -52t-6 -51z"
+            ></path>
+        </svg>
+        </button>
+      </fieldset>
+    </nav>
+  </header>
+  <section>
+    <iframe class="mobile"></iframe>
+  </section>
 </body>
 </html>
