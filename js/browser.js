@@ -69,19 +69,28 @@ var Browser = (function (){
         var len = $c.children('option').length;
         var currentIndex = $('#court-controls select option:selected').index();
         // previous or next clicked
-        var isPrev = $(e.target).closest('button').attr('id').indexOf('prev');
+        var isPrev = $(e.target).closest('button').attr('id').indexOf('prev') == 0;
 
-        var nextIndex = isPrev == 0 ? currentIndex - 1 : currentIndex + 1;
+        var nextIndex = isPrev ? currentIndex - 1 : currentIndex + 1;
         // next two lines for rolling around the list
-        var nextIndex = nextIndex == -1 ? ( len - 1) : nextIndex;
-        var nextIndex = nextIndex >= len ? 0 : nextIndex;
+        nextIndex = nextIndex == -1 ? ( len - 1 ) : nextIndex;
+        nextIndex = nextIndex >= len ? 0 : nextIndex;
 
         $c.children( 'option:nth-child(' + (nextIndex + 1) + ')' ).prop('selected', true);
         Browser.loadSelectedCourt();
       });
 
       $('#prev-size, #next-size').click(function ( e ){
+        var isPrev = $(e.target).closest('button').attr('id').indexOf('prev') == 0;
+        var s = _.keys(sizes);
+        var currentSizeIndex = s.indexOf($('iframe').attr('class'));
 
+        var nextIndex = isPrev ? currentSizeIndex - 1 : currentSizeIndex + 1;
+        // next two lines for rolling around the list
+        nextIndex = nextIndex == -1 ? ( s.length - 1 ) : nextIndex;
+        nextIndex = nextIndex >= s.length ? 0 : nextIndex;
+
+        Browser.setFrameSize( s[nextIndex] );
       });
     },
 
