@@ -26,14 +26,14 @@ https.get( liveCourtListURL, function ( res ){
 function buildOutputObject(){
   for( var i = 0; i < courtlist.length; i++ ){
     outputObj.push({
-      url: courtlist[i]['@id'],
+      "@id": courtlist[i]['@id'],
       name: courtlist[i]['name']
     });
   }
 }
 
 function writeToFile(){
-  fs.writeFile( outfile, JSON.stringify(outputObj), function ( err ){
+  fs.writeFile( outfile, JSON.stringify({courts: outputObj}), function ( err ){
     if( err )
       console.log("Error: ", err);
 

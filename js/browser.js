@@ -9,7 +9,7 @@ var Browser = (function (){
   };
 
   var baseURLs = {
-    Local:       "http://courtfinder.dev", 
+    Local:       "http://localhost:3000", 
     Development: "http://courtfinder.dev", 
     Staging:     "https://courtfinder.is.dsd.io",
     Production:  "https://courttribunalfinder.service.gov.uk"
@@ -19,6 +19,9 @@ var Browser = (function (){
     local: 'data/courtlist.json',
     live: '/courts.json'
   };
+
+  var defaultEnv = 'Production';
+  var defaultCourtSource = 'local';
 
   var cycleDelay = 1500;
 
@@ -95,13 +98,27 @@ var Browser = (function (){
     },
 
     loadCourtList: function ( callback ){
-      $.getJSON(courtListURL.local, callback);
+      if( defaultCourtSource == 'local' ){
+        var url = courtListURL[defaultCourtSource];
+      }else {
+        var url = baseURLs[defaultEnv] + courtListURL[defaultCourtSource];      
+      }
+
+      $.ajax(url, {
+        dataType: "json",
+        timeout: 20000,
+        success: callback,
+        error: function (){
+          console.log(arguments);
+        }
+      });
     },
 
-    populateCourtSelector: function ( courts ){
+    populateCourtSelector: function ( data ){
+      var courts = data.courts;
       var $s = Browser.$courtSelect;
       for( var i = 0; i < courts.length; i++ ){
-        $s.append($('<option>').attr('value', courts[i].url).html(courts[i].name));
+        $s.append($('<option>').attr('value', courts[i]['@id']).html(courts[i]['name']));
       }
 
       Browser.loadSelectedCourt();
@@ -112,6 +129,8 @@ var Browser = (function (){
       for( var env in baseURLs ){
         $e.append($('<option>').attr('value', env).html(env));
       }
+
+      $e.children("option[value='" + defaultEnv + "']").prop('selected', true);
     },
 
     loadSelectedCourt: function (){
