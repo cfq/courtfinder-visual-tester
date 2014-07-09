@@ -1,4 +1,4 @@
 courtfinder-visual-tester
 =========================
 
-[https://rawgit.com/cfq/courtfinder-visual-tester/master/index.html](https://rawgit.com/cfq/courtfinder-visual-tester/master/index.html)
+[http://cfq.github.io/courtfinder-visual-tester/](http://cfq.github.io/courtfinder-visual-tester/)
