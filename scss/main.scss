@@ -15,7 +15,6 @@ body {
   height: 100%;
   font: lighter 1em/1.4em 'Helvetica Neue', Helvetica, sans-serif;
   color: #f2f2f2;
-  background: #ccc;
 }
 
 header {
@@ -31,16 +30,32 @@ header {
     float: left;
   }
 
-  nav {
-    float: right;
-  }
-
   h1 {
     font-size: 18px;
     font-weight: lighter;
     margin: 0;
     padding: 0;
     line-height: $header-height - 0.2em;
+  }
+
+  nav ul {
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 1em;
+
+    li {
+      display: inline;
+
+      a {
+        color: #f2f2f2;
+      }
+    }
+  }
+
+  nav .nav-controls {
+    float: right;
   }
 
   fieldset {
@@ -79,7 +94,7 @@ header {
           top: 1px;
 
           path {
-            fill: #f2f2f2;        
+            fill: #f2f2f2;
           } 
         }
 
@@ -101,31 +116,58 @@ header {
       margin-top: 1px;
     }
   }
-
 }
 
-section {
-  position: fixed;
-  top: $header-height;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+#data-tester {
+  background: #ccc;
 
-iframe {
-  display: block;
-  margin: auto;
-  height: 100%;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-  transition: all 600ms ease-in-out;
+  section {
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 
-  &.mobile  { width: $mobile-width;   }
-  &.tablet  { width: $tablet-width;   }
-  &.desktop { width: $desktop-width;  }
-  &.full    { width: $full-width;     }
+  iframe {
+    display: block;
+    margin: auto;
+    height: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: all 600ms ease-in-out;
 
-  &.loading {
-    opacity: 0.5;
+    &.mobile  { width: $mobile-width;   }
+    &.tablet  { width: $tablet-width;   }
+    &.desktop { width: $desktop-width;  }
+    &.full    { width: $full-width;     }
+
+    &.loading {
+      opacity: 0.5;
+    }
   }
 }
 
+#data-quality {
+  #list, #view {
+    position: fixed;
+    top: $header-height;
+    bottom: 0;
+  }
+
+  #list {
+    width: 66%;
+    left: 0;
+    right: 33%;
+  }
+
+  #view {
+    width: 33%;
+    left: 66%;
+    right: 0;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

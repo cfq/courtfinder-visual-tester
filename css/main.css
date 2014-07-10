@@ -1,4 +1,4 @@
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/* normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -314,7 +314,7 @@ input[type="search"]::-webkit-search-decoration {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -357,9 +357,8 @@ th {
 body {
   width: 100%;
   height: 100%;
-  font: lighter 1em/1.4em 'Helvetica Neue', Helvetica, sans-serif;
-  color: #f2f2f2;
-  background: #ccc; }
+  font: lighter 1em/1.4em "Helvetica Neue", Helvetica, sans-serif;
+  color: #f2f2f2; }
 
 header {
   position: fixed;
@@ -371,14 +370,24 @@ header {
   padding: 0 1em; }
   header h1, header fieldset {
     float: left; }
-  header nav {
-    float: right; }
   header h1 {
     font-size: 18px;
     font-weight: lighter;
     margin: 0;
     padding: 0;
     line-height: 1.3em; }
+  header nav ul {
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 1em; }
+    header nav ul li {
+      display: inline; }
+      header nav ul li a {
+        color: #f2f2f2; }
+  header nav .nav-controls {
+    float: right; }
   header fieldset {
     border: none;
     margin-left: 2em;
@@ -391,8 +400,8 @@ header {
       padding: 0 0.4em;
       margin: 0;
       border: 0;
-      border-left: 1px solid #444;
-      border-right: 1px solid #444;
+      border-left: 1px solid #444444;
+      border-right: 1px solid #444444;
       background: #777;
       height: 24px; }
       header fieldset button .chevron {
@@ -415,26 +424,43 @@ header {
     vertical-align: top;
     margin-top: 1px; }
 
-section {
+#data-tester {
+  background: #ccc; }
+  #data-tester section {
+    position: fixed;
+    top: 1.5em;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  #data-tester iframe {
+    display: block;
+    margin: auto;
+    height: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: all 600ms ease-in-out; }
+    #data-tester iframe.mobile {
+      width: 320px; }
+    #data-tester iframe.tablet {
+      width: 768px; }
+    #data-tester iframe.desktop {
+      width: 1024px; }
+    #data-tester iframe.full {
+      width: 100%; }
+    #data-tester iframe.loading {
+      opacity: 0.5; }
+
+#data-quality #list, #data-quality #view {
   position: fixed;
   top: 1.5em;
-  left: 0;
-  right: 0;
   bottom: 0; }
-
-iframe {
-  display: block;
-  margin: auto;
-  height: 100%;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-  transition: all 600ms ease-in-out; }
-  iframe.mobile {
-    width: 320px; }
-  iframe.tablet {
-    width: 768px; }
-  iframe.desktop {
-    width: 1024px; }
-  iframe.full {
-    width: 100%; }
-  iframe.loading {
-    opacity: 0.5; }
+#data-quality #list {
+  width: 66%;
+  left: 0;
+  right: 33%; }
+#data-quality #view {
+  width: 33%;
+  left: 66%;
+  right: 0; }
+  #data-quality #view iframe {
+    width: 100%;
+    height: 100%; }
